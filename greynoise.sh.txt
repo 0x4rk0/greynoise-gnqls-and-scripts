@@ -1,0 +1,10 @@
+while read cve; do
+  from
+curl --request GET \
+     --url 'https://api.greynoise.io/v2/experimental/gnql/stats?query=cve%3A'$cve'&count=1' \
+     --header 'accept: application/json' \
+     --header 'key: YOUR KEY HERE' | tee -a results.txt
+
+done <cves.txt
+
+
